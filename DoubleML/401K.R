@@ -131,7 +131,7 @@ colnames(result) <- cbind(t(methods), "best")
 rownames(result) <- cbind("Median ATE", "se(median)",  "se")
 
 result[1,]        <- colQuantiles(r[,1:(length(methods)+1)], probs=0.5)
-result[2,]        <- colQuantiles(sqrt(r[,(length(methods)+2):ncol(r)]^2+(r[,1:(length(methods)+1)] - colQuantiles(r[,1:(length(methods)+1)], probs=0.5))^2), probs=0.5)
+result[2,]        <- colQuantiles(sqrt(r[,(length(methods)+2):ncol(r)]^2+(t(t(r[,1:(length(methods)+1)]) - colQuantiles(r[,1:(length(methods)+1)], probs=0.5))^2)), probs=0.5)
 result[3,]        <- colQuantiles(r[,(length(methods)+2):ncol(r)], probs=0.5)
 
 result_table <- round(result, digits = 0)
