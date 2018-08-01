@@ -471,7 +471,7 @@ for(l in 1:length(Y)){
       if(i==1){
         GATES_final[(c):(c+2),((j-1)*3+1):(j*3)] <- matrix(results_test2[(c2):(c2+8),k], 3, 3)
         rownames_GATES[c]   <- names[l]
-        BLP_final[(c):(c+2),((j-1)*2+1):(j*2)] <- cbind(result2[(c):(c+2),j], result_het2[(c):(c+2),k])
+        BLP_final[(c):(c+2),((j-1)*2+1):(j*2)] <- cbind(result2[(c):(c+2),k], result_het2[(c):(c+2),k])
       }
       
       rownames_CLAN[a]   <- names_affected[i]
